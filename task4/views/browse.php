@@ -214,7 +214,6 @@
             var resetBtn = document.getElementById('resetFilters');
             var resetFromEmpty = document.getElementById('resetFromEmpty');
 
-            /* ---------- helpers ---------- */
             function escHtml(str) {
                 var d = document.createElement('div');
                 d.textContent = str || '';
@@ -282,7 +281,6 @@
                 };
             }
 
-            /* ---------- debounce ---------- */
             function debounce(fn, ms) {
                 var t;
                 return function() {
@@ -294,7 +292,6 @@
                 };
             }
 
-            /* ---------- live search ---------- */
             var doSearch = debounce(function(q) {
                 if (q.trim() === '') {
                     applyFilters();
@@ -319,7 +316,7 @@
                 doSearch(searchBox.value);
             });
 
-            /* ---------- filter ---------- */
+
             function applyFilters() {
                 var f = getFilters();
                 var params = new URLSearchParams();
@@ -351,7 +348,6 @@
                 el.addEventListener('change', applyFilters);
             });
 
-            /* ---------- reset ---------- */
             function resetAll() {
                 if (countryFilter) countryFilter.value = '';
                 document.querySelectorAll('.genre-check').forEach(function(el) {
