@@ -1,8 +1,5 @@
 <?php
-// ================================================================
-// FRONT CONTROLLER / ROUTER – Travel Guide Group 8
-// Unified: Task 1 (User/Auth) + Task 2 (Scout) + Task 4 (Browse)
-// ================================================================
+
 
 session_start();
 
@@ -25,11 +22,7 @@ if ($page === 'logout') {
     exit;
 }
 
-/* ─────────────────────────── AJAX ───────────────────────────────
-   Task 1:  wishlist_add | wishlist_remove
-   Task 2:  delete_request | search_requests
-   Task 4:  posts_search | posts_filter | comment_add | comment_delete
-*/
+
 if ($page === 'ajax') {
     if (!isset($_SESSION['user'])) {
         header('Content-Type: application/json');
@@ -77,9 +70,7 @@ if (!in_array($page, $publicPages) && !isset($_SESSION['user'])) {
     exit;
 }
 
-/* ─────────────────────── Role gates ────────────────────────── */
 
-// Wishlist → verified general users only
 if ($page === 'wishlist') {
     if ($_SESSION['user']['role'] !== 'user' || !$_SESSION['user']['is_verified']) {
         header('Location: index.php?page=home'); exit;
@@ -106,12 +97,12 @@ switch ($page) {
     case 'profile':      profileCtrl($conn);      break;
     case 'wishlist':     wishlistCtrl($conn);      break;
 
-    // ── Task 2 – Scout ──
+   
     case 'dashboard':    dashboardCtrl($conn);    break;
     case 'request_form': requestFormCtrl($conn);  break;
     case 'approved':     approvedCtrl($conn);     break;
 
-    // ── Task 4 – Browse & Comments ──
+    
     case 'posts':        postsCtrl($conn);         break;
     case 'post_detail':  postDetailCtrl($conn);    break;
 

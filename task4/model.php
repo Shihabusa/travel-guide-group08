@@ -1,13 +1,5 @@
 <?php
-// ================================================================
-// MODELS – All DB queries using mysqli + prepared statements
-// Travel Guide – Group 8
-// Task 1 (Auth/Profile/Wishlist) + Task 2 (Scout) + Task 4 (Browse/Comments/Cost)
-// ================================================================
 
-/* ================================================================
-   SHARED AUTH  (Task 1 + Task 2 both need these)
-   ================================================================ */
 
 function authUser($conn, $email, $password)
 {
@@ -99,9 +91,6 @@ function registerUser($conn, $name, $email, $password, $role)
     return $ok;
 }
 
-/* ================================================================
-   TASK 1 – Profile & Wishlist
-   ================================================================ */
 
 function getUser($conn, $id)
 {
@@ -213,9 +202,7 @@ function getApprovedPosts($conn)
     return mysqli_fetch_all($r, MYSQLI_ASSOC);
 }
 
-/* ================================================================
-   TASK 2 – Scout: Post Requests CRUD
-   ================================================================ */
+
 
 function getMyRequests($conn, $scoutId)
 {
@@ -376,9 +363,6 @@ function searchMyRequests($conn, $scoutId, $term)
     return $rows;
 }
 
-/* ================================================================
-   TASK 4 – Browse, Search, Filter
-   ================================================================ */
 
 function getPostById($conn, $id)
 {
@@ -455,9 +439,6 @@ function getDistinctCountries($conn)
     return mysqli_fetch_all($r, MYSQLI_COLUMN);
 }
 
-/* ================================================================
-   TASK 4 – Comments CRUD
-   ================================================================ */
 
 function getCommentsByPost($conn, $postId)
 {
@@ -515,9 +496,7 @@ function getCommentById($conn, $commentId)
     return $row;
 }
 
-/* ================================================================
-   TASK 4 – Cost Estimates
-   ================================================================ */
+
 
 function getBaseCost($conn, $postId, $costLevel)
 {

@@ -1,12 +1,5 @@
 <?php
-// ================================================================
-// CONTROLLERS – Travel Guide Group 8
-// Task 1 (Auth/Profile/Wishlist) + Task 2 (Scout) + Task 4 (Browse)
-// ================================================================
 
-/* ================================================================
-   SHARED: Login  –  redirects by role after login
-   ================================================================ */
 function loginCtrl($conn)
 {
     $error   = '';
@@ -71,10 +64,7 @@ function loginCtrl($conn)
     require 'views/login.php';
 }
 
-/* ================================================================
-   SHARED: Register
-   ================================================================ */
-function registerCtrl($conn)
+
 {
     $error = '';
     $old   = ['name' => '', 'email' => '', 'role' => 'user'];
@@ -110,9 +100,7 @@ function registerCtrl($conn)
     require 'views/register.php';
 }
 
-/* ================================================================
-   TASK 1 – Home
-   ================================================================ */
+
 function homeCtrl($conn)
 {
     $posts = [];
@@ -122,9 +110,7 @@ function homeCtrl($conn)
     require 'views/home.php';
 }
 
-/* ================================================================
-   TASK 1 – Profile
-   ================================================================ */
+
 function profileCtrl($conn)
 {
     $error   = '';
@@ -212,9 +198,7 @@ function profileCtrl($conn)
     require 'views/profile.php';
 }
 
-/* ================================================================
-   TASK 1 – Wishlist page
-   ================================================================ */
+
 function wishlistCtrl($conn)
 {
     $userId   = $_SESSION['user']['id'];
@@ -278,9 +262,7 @@ function ajaxWishlistRemove($conn)
     exit;
 }
 
-/* ================================================================
-   TASK 2 – Scout Dashboard (My Requests)
-   ================================================================ */
+
 function dashboardCtrl($conn)
 {
     $scoutId  = $_SESSION['user']['id'];
@@ -288,9 +270,7 @@ function dashboardCtrl($conn)
     require 'views/dashboard.php';
 }
 
-/* ================================================================
-   TASK 2 – Create / Edit / Update Request form
-   ================================================================ */
+
 function requestFormCtrl($conn)
 {
     $action  = $_GET['action'] ?? 'add';
@@ -407,7 +387,7 @@ function requestFormCtrl($conn)
     require 'views/request_form.php';
 }
 
-/** Internal helper: handle post image uploads */
+
 function _handleImageUpload($ownerId): array
 {
     $file    = $_FILES['image'];
@@ -421,9 +401,7 @@ function _handleImageUpload($ownerId): array
     return ['error' => null, 'path' => $dest];
 }
 
-/* ================================================================
-   TASK 2 – Approved Posts (Scout's own)
-   ================================================================ */
+
 function approvedCtrl($conn)
 {
     $scoutId = $_SESSION['user']['id'];
@@ -431,9 +409,7 @@ function approvedCtrl($conn)
     require 'views/approved.php';
 }
 
-/* ================================================================
-   TASK 2 – AJAX: Delete & Search requests
-   ================================================================ */
+
 function ajaxDeleteRequest($conn)
 {
     header('Content-Type: application/json');
@@ -473,9 +449,7 @@ function ajaxSearchRequests($conn)
     exit;
 }
 
-/* ================================================================
-   TASK 4 – Browse & Detail
-   ================================================================ */
+
 function postsCtrl($conn)
 {
     if (!isset($_SESSION['user']) || !$_SESSION['user']['is_verified']) {
@@ -510,9 +484,7 @@ function postDetailCtrl($conn)
     require 'views/post_detail.php';
 }
 
-/* ================================================================
-   TASK 4 – AJAX: Search, Filter, Comments
-   ================================================================ */
+
 function ajaxPostsSearch($conn)
 {
     header('Content-Type: application/json');
