@@ -10,7 +10,6 @@
 
 <body class="app-body">
 
-    <!-- Navbar – role-aware for all 3 tasks -->
     <header class="navbar">
         <div class="navbar-inner">
             <a class="brand" href="index.php?page=home">
@@ -55,13 +54,13 @@
 
     <main class="main-content">
 
-        <!-- Hero -->
+
         <div class="hero" style="padding: 44px 40px; margin-bottom: 28px;">
             <span class="hero-icon">&#127758;</span>
             <h1>Explore Destinations</h1>
             <p>Search, filter and discover places handpicked by our scouts worldwide.</p>
 
-            <!-- Live Search Box -->
+
             <div class="t4-search-wrap">
                 <span class="t4-search-icon">&#128269;</span>
                 <input
@@ -74,12 +73,12 @@
             </div>
         </div>
 
-        <!-- Filter Bar -->
+
         <div class="card t4-filter-bar">
             <div class="card-toolbar" style="flex-wrap: wrap; gap: 16px; padding: 18px 24px;">
                 <span style="font-weight: 800; color: #0c4a6e; font-size: 14px;">&#9881; Filters</span>
 
-                <!-- Country -->
+
                 <div class="t4-filter-group">
                     <label class="t4-filter-label">Country</label>
                     <select id="countryFilter" class="t4-filter-select">
@@ -92,7 +91,6 @@
                     </select>
                 </div>
 
-                <!-- Genre -->
                 <div class="t4-filter-group">
                     <label class="t4-filter-label">Genre</label>
                     <div class="t4-genre-wrap">
@@ -107,7 +105,6 @@
                     </div>
                 </div>
 
-                <!-- Cost -->
                 <div class="t4-filter-group">
                     <label class="t4-filter-label">Cost Level</label>
                     <div class="t4-genre-wrap">
@@ -135,7 +132,6 @@
             </div>
         </div>
 
-        <!-- Results header -->
         <div class="page-header" style="margin-bottom: 16px;">
             <div>
                 <h2 class="section-title">&#127957; Available Destinations</h2>
@@ -145,12 +141,11 @@
             </div>
         </div>
 
-        <!-- Spinner -->
+
         <div id="loadingSpinner" class="t4-spinner" style="display:none;">
             <span class="t4-spinner-ring"></span> Loading destinations…
         </div>
 
-        <!-- No results -->
         <div id="noResults" class="pending-box" style="display:none;">
             <span class="pending-icon">&#127757;</span>
             <h2>No Destinations Found</h2>
@@ -158,7 +153,7 @@
             <button id="resetFromEmpty" class="btn btn-ghost">&#8635; Reset Filters</button>
         </div>
 
-        <!-- Posts Grid -->
+
         <div class="posts-grid" id="postsGrid">
             <?php if (empty($posts)): ?>
                 <div class="pending-box" style="grid-column: 1/-1;">
@@ -206,9 +201,6 @@
         &copy; <?= date('Y') ?> Travel Guide &mdash; Group 8. Explore the world, one destination at a time. &#9992;
     </footer>
 
-    <!-- ============================================================
-     TASK 4 – Live Search + AJAX Filter JS
-     ============================================================ -->
     <script>
         (function() {
             "use strict";
