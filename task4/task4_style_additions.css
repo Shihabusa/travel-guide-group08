@@ -1,0 +1,235 @@
+/* ================================================================
+   TASK 4 ADDITIONS – Append these to the end of style.css
+   Travel Guide - Group 09
+   ================================================================ */
+
+/* ── Search bar on posts browse page ───────────────────────── */
+.t4-search-wrap {
+    position: relative;
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+.t4-search-input {
+    width: 100%;
+    padding: 14px 48px 14px 20px;
+    font-size: 15px;
+    font-family: inherit;
+    border: 2px solid rgba(255, 255, 255, .40);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .15);
+    color: #fff;
+    backdrop-filter: blur(4px);
+    outline: none;
+    transition: all .25s ease;
+}
+
+.t4-search-input::placeholder {
+    color: rgba(255, 255, 255, .65);
+}
+
+.t4-search-input:focus {
+    background: rgba(255, 255, 255, .25);
+    border-color: rgba(255, 255, 255, .80);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, .12);
+}
+
+.t4-search-icon {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 17px;
+    pointer-events: none;
+    opacity: .75;
+}
+
+/* ── Filter bar ─────────────────────────────────────────────── */
+.t4-filter-bar {
+    margin-bottom: 24px;
+}
+
+.t4-filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.t4-filter-label {
+    font-size: 11px;
+    font-weight: 800;
+    color: #0c4a6e;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+
+.t4-filter-select {
+    padding: 9px 13px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-family: inherit;
+    background: #fff;
+    color: var(--text);
+    cursor: pointer;
+    outline: none;
+    transition: var(--transition);
+    min-width: 150px;
+}
+
+.t4-filter-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(3, 105, 161, .10);
+}
+
+.t4-genre-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+}
+
+.t4-check-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: var(--text);
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1.5px solid var(--border);
+    border-radius: 999px;
+    background: #fff;
+    transition: var(--transition);
+    user-select: none;
+}
+
+.t4-check-label:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.t4-check-label input {
+    accent-color: var(--primary);
+}
+
+/* ── Spinner ─────────────────────────────────────────────────── */
+.t4-spinner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-muted);
+    font-size: 14px;
+    padding: 24px 0;
+    justify-content: center;
+}
+
+.t4-spinner-ring {
+    width: 24px;
+    height: 24px;
+    border: 3px solid var(--border);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    display: inline-block;
+    animation: t4spin .7s linear infinite;
+}
+
+@keyframes t4spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ── Comments list ───────────────────────────────────────────── */
+.t4-comment-item {
+    display: flex;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid #e0f2fe;
+}
+
+.t4-comment-item:last-child {
+    border-bottom: none;
+}
+
+.t4-comment-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0369a1, #38bdf8);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.t4-comment-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.t4-comment-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+}
+
+.t4-comment-author {
+    font-size: 13px;
+    font-weight: 800;
+    color: #0c4a6e;
+}
+
+.t4-comment-date {
+    font-size: 11px;
+    color: var(--text-light);
+    margin-left: auto;
+}
+
+.t4-comment-text {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.65;
+}
+
+/* ── Delete comment button ───────────────────────────────────── */
+.btn-delete-comment {
+    background: none;
+    border: 1.5px solid #fca5a5;
+    color: #dc2626;
+    font-size: 11px;
+    font-family: inherit;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-delete-comment:hover {
+    background: #dc2626;
+    border-color: #dc2626;
+    color: #fff;
+}
+
+/* ── Responsive adjustments ──────────────────────────────────── */
+@media (max-width: 768px) {
+    .t4-filter-bar .card-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .t4-genre-wrap {
+        gap: 4px;
+    }
+
+    .t4-search-input {
+        font-size: 14px;
+        padding: 12px 44px 12px 16px;
+    }
+}
